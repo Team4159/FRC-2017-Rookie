@@ -5,6 +5,7 @@
 constexpr int leftDriveMotor = 0;
 constexpr int rightDriveMotor = 0;
 
+constexpr int shooterFlywheelMotor = 0;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking

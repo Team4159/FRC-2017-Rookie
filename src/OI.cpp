@@ -1,9 +1,12 @@
 #include "OI.h"
 
 #include <WPILib.h>
-
+#include <Buttons/JoystickButton.h>
+#include "Commands/Shoot.h"
 OI::OI() {
-	// Process operator interface input here.
+	// Fill in correct joystick mapping
+	shootButton = new JoystickButton(rightStick.get(), 0);
+	shootButton->WhileHeld(new Shoot());
 }
 
 double OI::getLeftDriveValue(){

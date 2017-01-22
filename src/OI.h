@@ -2,10 +2,13 @@
 #define OI_H
 
 #include <Joystick.h>
+#include <Buttons/JoystickButton.h>
 class OI {
 public:
 	std::unique_ptr<Joystick> leftStick = std::make_unique<Joystick>(0);
 	std::unique_ptr<Joystick> rightStick = std::make_unique<Joystick>(1);
+
+	JoystickButton *shootButton;
 
 	Joystick::AxisType LEFT_DRIVE_AXIS = Joystick::AxisType::kYAxis;
 	double LEFT_DRIVE_MULTIPLIER = 1;
