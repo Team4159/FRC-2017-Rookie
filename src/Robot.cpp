@@ -15,6 +15,7 @@ public:
 	void RobotInit() override {
 		chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
+		setupSmartDashboard();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}
 
@@ -59,6 +60,7 @@ public:
 	}
 
 	void AutonomousPeriodic() override {
+
 		frc::Scheduler::GetInstance()->Run();
 	}
 
@@ -73,6 +75,7 @@ public:
 	}
 
 	void TeleopPeriodic() override {
+		CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
 		frc::Scheduler::GetInstance()->Run();
 	}
 
@@ -83,6 +86,9 @@ public:
 private:
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
+	void setupSmartDashboard() {
+
+	}
 };
 
 START_ROBOT_CLASS(Robot)
