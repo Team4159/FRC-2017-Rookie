@@ -14,6 +14,8 @@ public:
 	double RIGHT_DRIVE_MULTIPLIER = 1;
 
 	OI();
+	double getLeftDriveValue();
+	double getRightDriveValue();
 };
 
 #endif  // OI_H

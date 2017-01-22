@@ -75,8 +75,7 @@ public:
 	}
 
 	void TeleopPeriodic() override {
-		CommandBase::drivetrain->set(CommandBase::oi->leftStick->GetAxis(CommandBase::oi->LEFT_DRIVE_AXIS) * CommandBase::oi->LEFT_DRIVE_MULTIPLIER,
-				CommandBase::oi->rightStick->GetAxis(CommandBase::oi->RIGHT_DRIVE_AXIS) * CommandBase::oi->RIGHT_DRIVE_MULTIPLIER);
+		CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
 		frc::Scheduler::GetInstance()->Run();
 	}
 
