@@ -8,7 +8,6 @@ class Drivetrain: public frc::Subsystem {
 public:
 	Drivetrain();
 	void InitDefaultCommand() override;
-	void set(Joystick leftStick, Joystick rightStick);
 	void set(double leftValue, double rightValue);
 
 private:

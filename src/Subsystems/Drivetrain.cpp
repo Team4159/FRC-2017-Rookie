@@ -17,14 +17,6 @@ void Drivetrain::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Drivetrain::set(Joystick leftStick, Joystick rightStick){
-	double leftValue = leftStick.GetY();
-	double rightValue = rightStick.GetY();
-	
-	leftMotor->Set(leftValue);
-	rightMotor->Set(rightValue);
-}
-
 void Drivetrain::set(double leftValue, double rightValue){
 	leftMotor->Set(leftValue);
 	rightMotor->Set(rightValue);
