@@ -4,8 +4,8 @@
 #include <Joystick.h>
 class OI {
 public:
-	Joystick *leftStick = new Joystick(0);
-	Joystick *rightStick = new Joystick(1);
+	std::unique_ptr<Joystick> leftStick = std::make_unique<Joystick>(0);
+	std::unique_ptr<Joystick> rightStick = std::make_unique<Joystick>(1);
 
 	Joystick::AxisType LEFT_DRIVE_AXIS = Joystick::AxisType::kYAxis;
 	double LEFT_DRIVE_MULTIPLIER = 1;
