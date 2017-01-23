@@ -11,7 +11,7 @@ private:
 public:
 	Shooter();
 	void InitDefaultCommand();
-	void setFlywheel(double value);
+	void SetFlywheel(double value);
 };
 
 #endif  // Shooter_H

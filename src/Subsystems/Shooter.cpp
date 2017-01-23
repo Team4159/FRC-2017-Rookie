@@ -13,6 +13,6 @@ void Shooter::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Shooter::setFlywheel(double value){
+void Shooter::SetFlywheel(double value){
 	flywheelMotor->Set(value);
 }
