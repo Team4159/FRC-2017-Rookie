@@ -9,7 +9,7 @@
 #include "OI.h"
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Shooter.h"
-
+#include "Subsystems/test.h"
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
@@ -20,11 +20,13 @@ class CommandBase: public frc::Command {
 public:
 	CommandBase(const std::string& name);
 	CommandBase() = default;
-
+	static void init();
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<Drivetrain> drivetrain;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
+	static test* tester;
+	//static void init();
 };
 
 #endif  // COMMAND_BASE_H

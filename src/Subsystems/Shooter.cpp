@@ -1,6 +1,8 @@
 #include "Shooter.h"
 #include "../RobotMap.h"
 #include <VictorSP.h>
+//#include <Victor.h>
+#include "../Commands/Shoot.h"
 
 Shooter::Shooter() : Subsystem("Shooter") {
 	flywheelMotor = new VictorSP(shooterFlywheelMotor);
@@ -8,7 +10,7 @@ Shooter::Shooter() : Subsystem("Shooter") {
 
 void Shooter::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
-	// SetDefaultCommand(new MySpecialCommand());
+	//SetDefaultCommand(new Shoot());
 }
 
 // Put methods for controlling this subsystem

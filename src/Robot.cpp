@@ -1,22 +1,32 @@
 #include <memory>
 
+//#include <Victor.h>
+//VictorSP* temp = new VictorSP(1);
 #include <Commands/Command.h>
 #include <Commands/Scheduler.h>
 #include <IterativeRobot.h>
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-
+//#include <VictorSP.h>
+//VictorSP* temp = new VictorSP(1);
 #include "Commands/Shoot.h"
+//#include "VictorSP.h"
+#include <VictorSP.h>
+VictorSP* temp;
 #include "CommandBase.h"
+//#include <Subsystems/test.h>
 
 class Robot: public frc::IterativeRobot {
 public:
+	//test tester();
 	void RobotInit() override {
 		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		setupSmartDashboard();
-		frc::SmartDashboard::PutData("Auto Modes", &chooser);
+		CommandBase::init();
+		//temp = new VictorSP(0);
+		//frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}
 
 	/**
@@ -52,11 +62,11 @@ public:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		autonomousCommand.reset(chooser.GetSelected());
+	//	autonomousCommand.reset(chooser.GetSelected());
 
-		if (autonomousCommand.get() != nullptr) {
-			autonomousCommand->Start();
-		}
+		//if (autonomousCommand.get() != nullptr) {
+			//autonomousCommand->Start();
+		//}
 	}
 
 	void AutonomousPeriodic() override {
@@ -69,9 +79,9 @@ public:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != nullptr) {
-			autonomousCommand->Cancel();
-		}
+		//if (autonomousCommand != nullptr) {
+		//	autonomousCommand->Cancel();
+		//}
 	}
 
 	void TeleopPeriodic() override {
@@ -84,8 +94,8 @@ public:
 	}
 
 private:
-	std::unique_ptr<frc::Command> autonomousCommand;
-	frc::SendableChooser<frc::Command*> chooser;
+	//std::unique_ptr<frc::Command> autonomousCommand;
+	//frc::SendableChooser<frc::Command*> chooser;
 	void setupSmartDashboard() {
 
 	}

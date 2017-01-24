@@ -1,18 +1,17 @@
-#ifndef Shooter_H
-#define Shooter_H
+#ifndef test_H
+#define test_H
 
 #include <Commands/Subsystem.h>
 #include <VictorSP.h>
-class Shooter : public Subsystem {
+class test : public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 
 public:
-	VictorSP* flywheelMotor;// = new Victor(3);
-	Shooter();
+	test();
 	void InitDefaultCommand();
-	void SetFlywheel(double value);
+	VictorSP* victortest;
 };
 
-#endif  // Shooter_H
+#endif  // test_H
