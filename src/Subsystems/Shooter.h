@@ -7,9 +7,8 @@ class Shooter : public Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-
+	VictorSP* flywheelMotor;
 public:
-	VictorSP* flywheelMotor;// = new Victor(3);
 	Shooter();
 	void InitDefaultCommand();
 	void SetFlywheel(double value);

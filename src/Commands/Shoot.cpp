@@ -1,7 +1,7 @@
 #include "Shoot.h"
 
 Shoot::Shoot() {
-	//Requires(shooter.get());
+	Requires(shooter.get());
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 }

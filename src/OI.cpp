@@ -5,8 +5,8 @@
 #include "Commands/Shoot.h"
 OI::OI() {
 	// Fill in correct joystick mapping
-	shootButton = new JoystickButton(rightStick.get(), 1);
-	//shootButton->WhileHeld(new Shoot());
+	shootButton = new JoystickButton(rightStick.get(), 0);
+	shootButton->WhileHeld(new Shoot());
 }
 
 double OI::getLeftDriveValue(){
