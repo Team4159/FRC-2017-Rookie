@@ -15,6 +15,7 @@ public:
 	void RobotInit() override {
 		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
+		CommandBase::init();
 		setupSmartDashboard();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}

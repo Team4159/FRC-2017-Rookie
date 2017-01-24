@@ -25,6 +25,7 @@ public:
 	static std::unique_ptr<Drivetrain> drivetrain;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
+	static void init();
 };
 
 #endif  // COMMAND_BASE_H
