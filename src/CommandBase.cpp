@@ -12,6 +12,8 @@ std::unique_ptr<Drivetrain> CommandBase::drivetrain=
 std::unique_ptr<OI> CommandBase::oi = NULL;
 
 std::unique_ptr<Shooter> CommandBase::shooter = NULL;
+
+std::unique_ptr<Climber> CommandBase::climber = NULL;
 CommandBase::CommandBase(const std::string &name) :
 		frc::Command(name) {
 
@@ -21,4 +23,5 @@ void CommandBase::init(){
 	drivetrain = std::make_unique<Drivetrain>();
 	oi = std::make_unique<OI>();
 	shooter = std::make_unique<Shooter>();
+	climber = std::make_unique<Climber>();
 }

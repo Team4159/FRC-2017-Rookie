@@ -9,6 +9,7 @@
 #include "OI.h"
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Shooter.h"
+#include "Subsystems/Climber.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -25,6 +26,7 @@ public:
 	static std::unique_ptr<Drivetrain> drivetrain;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
+	static std::unique_ptr<Climber> climber;
 	static void init();
 };
 
