@@ -26,7 +26,7 @@ public:
 	 * the robot is disabled.
 	 */
 	void DisabledInit() override {
-
+		CommandBase::drivetrain->Disable();
 	}
 
 	void DisabledPeriodic() override {
@@ -70,13 +70,19 @@ public:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		CommandBase::drivetrain->Enable();
 		if (autonomousCommand != nullptr) {
 			autonomousCommand->Cancel();
 		}
 	}
 
 	void TeleopPeriodic() override {
-		CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
+		if (!CommandBase::shooter->IsShooting){
+			CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
+		}
+		else {
+			CommandBase::drivetrain->set(CommandBase::oi->getTurnValue() * -1, CommandBase::oi->getTurnValue());
+		}
 		frc::Scheduler::GetInstance()->Run();
 	}
 
@@ -87,8 +93,12 @@ public:
 private:
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
-	void setupSmartDashboard() {
 
+	void setupSmartDashboard() {
+		frc::SmartDashboard::PutNumber("LeftMotor", 0);
+		frc::SmartDashboard::PutNumber("RightMotor", 0);
+		frc::SmartDashboard::PutNumber("FlywheelPower", 0);
+		frc::SmartDashboard::PutBoolean("Shooting", false);
 	}
 };
 

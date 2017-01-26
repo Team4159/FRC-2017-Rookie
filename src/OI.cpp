@@ -4,8 +4,7 @@
 #include <Buttons/JoystickButton.h>
 #include "Commands/Shoot.h"
 OI::OI() {
-	// Fill in correct joystick mapping
-	shootButton = new JoystickButton(rightStick.get(), 0);
+	shootButton = new JoystickButton(rightStick.get(), 1);
 	shootButton->WhileHeld(new Shoot());
 }
 
@@ -15,4 +14,12 @@ double OI::getLeftDriveValue(){
 
 double OI::getRightDriveValue(){
 	return rightStick->GetAxis(RIGHT_DRIVE_AXIS) * RIGHT_DRIVE_MULTIPLIER;
+}
+
+double OI::getFlywheelValue(){
+	return FLYWHEEL_DEFAULT + (rightStick->GetAxis(FLYWHEEL_AXIS) * -1 * (-1 - FLYWHEEL_DEFAULT));
+}
+
+double OI::getTurnValue(){
+	return rightStick->GetAxis(SHOOTING_TURN_AXIS) * SHOOTING_TURN_MULTIPLIER;
 }

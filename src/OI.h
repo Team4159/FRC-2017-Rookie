@@ -16,9 +16,17 @@ public:
 	Joystick::AxisType RIGHT_DRIVE_AXIS = Joystick::AxisType::kYAxis;
 	double RIGHT_DRIVE_MULTIPLIER = 1;
 
+	Joystick::AxisType FLYWHEEL_AXIS = Joystick::AxisType::kYAxis;
+	double FLYWHEEL_DEFAULT = -0.5;
+
+	Joystick::AxisType SHOOTING_TURN_AXIS = Joystick::AxisType::kXAxis;
+	double SHOOTING_TURN_MULTIPLIER = 0.5;
+
 	OI();
 	double getLeftDriveValue();
 	double getRightDriveValue();
+	double getFlywheelValue();
+	double getTurnValue();
 };
 
 #endif  // OI_H

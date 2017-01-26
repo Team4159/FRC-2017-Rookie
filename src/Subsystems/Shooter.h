@@ -12,6 +12,7 @@ public:
 	Shooter();
 	void InitDefaultCommand();
 	void SetFlywheel(double value);
+	bool IsShooting = false;
 };
 
 #endif  // Shooter_H
