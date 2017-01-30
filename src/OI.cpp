@@ -21,5 +21,5 @@ double OI::getFlywheelValue(){
 }
 
 double OI::getTurnValue(){
-	return rightStick->GetAxis(SHOOTING_TURN_AXIS) * SHOOTING_TURN_MULTIPLIER;
+	return leftStick->GetAxis(SHOOTING_TURN_AXIS) * SHOOTING_TURN_MULTIPLIER;
 }
