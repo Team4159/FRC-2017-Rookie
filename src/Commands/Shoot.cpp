@@ -19,6 +19,7 @@ void Shoot::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool Shoot::IsFinished() {
+	// shootButton will call Interrupted when it is released
 	return false;
 }
 
