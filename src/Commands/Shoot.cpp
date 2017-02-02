@@ -14,7 +14,7 @@ void Shoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
-	shooter->SetFlywheel(CommandBase::oi->getFlywheelValue());
+	shooter->SetFlywheel(CommandBase::oi->GetFlywheelValue());
 }
 
 // Make this return true when this Command no longer needs to run execute()
