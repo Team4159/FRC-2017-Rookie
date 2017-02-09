@@ -12,8 +12,7 @@
 
 
 //set these to correct values after drivetrain fixed
-//Ted Tonate plays Pokemon Go everyday, Ted Tonate plays Pokemon Go.
-
+constexpr int TOLERANCE = 10;
 constexpr int IMG_WIDTH = 640;
 constexpr int IMG_HEIGHT = 480;
 constexpr int targetHeight4FeetFromHighGoal = 39;
@@ -27,7 +26,7 @@ constexpr int bestDistFromHighGoal = 36; //this value may be off
 constexpr double robotSpeed = 120; //inches per second, may be off
 
 bool isAiming = false;
-
+bool isGearing = false;
 
 //4 feet = height 121 for gear peg
 //4 feet = height 39 for high goal 4 inch high tape

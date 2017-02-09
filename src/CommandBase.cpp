@@ -1,5 +1,4 @@
 #include "CommandBase.h"
-
 #include <Commands/Scheduler.h>
 
 #include "Subsystems/Drivetrain.h"

@@ -3,8 +3,12 @@
 #include <WPILib.h>
 
 OI::OI() {
+	AimButton = new JoystickButton(leftStick.get(),1);
+	AimButton->WhenPressed(new AutoAim());
 	shootButton = new JoystickButton(rightStick.get(), 1);
 	shootButton->WhileHeld(new Shoot());
+	GearButton = new JoystickButton(rightStick.get(), 2);
+	GearButton->WhenPressed(new AutoGear());
 }
 
 double OI::getLeftDriveValue(){

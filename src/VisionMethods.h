@@ -4,7 +4,10 @@
  *  Created on: Feb 3, 2017
  *      Author: matthewacho
  */
-
+#include "Commands/GripPipeline.h"
+#include "RobotConstants.h"
+#include <string>
+#include <vector>
 #ifndef SRC_VISIONMETHODS_H_
 #define SRC_VISIONMETHODS_H_
 
@@ -15,6 +18,7 @@ std::vector<std::vector<cv::Point>> filteredContours(int cameranum) {
 	cap.set(CV_CAP_PROP_FRAME_WIDTH, IMG_WIDTH);
 	cap.set(CV_CAP_PROP_FRAME_HEIGHT, IMG_HEIGHT);
 	bool bSuccess = cap.read(frame);
+	grip::GripPipeline gp;
 	return gp.GripPipeline::process(frame);
 }
 
@@ -57,4 +61,30 @@ cv::Point centerOfContour(std::vector<cv::Point> contour) {
 	pt.x=totalx/contour.size();
 	pt.y=totaly/contour.size();
 	return pt;
+}
+
+std::vector<cv::Point> contourCenters(std::vector<std::vector<cv::Point>> contours) {
+	std::vector<cv::Point> centers;
+	double totalx;
+	double totaly;
+	for(int c=0;c<contours.size();c++) {
+		centers.push_back(centerOfContour(contours[c]));
+	}
+	return centers;
+}
+
+std::string initialOrientation() {
+	int score=0; //negative for left, positive for right
+	std::vector<cv::Point> centers = contourCenters(filteredContours(cameraPortLow));
+	for(int c=0;c<centers.size();c++) {
+		if(centers[c].x>IMG_WIDTH/2+TOLERANCE) {
+			score++;
+		}
+		else if(centers[c].x<IMG_WIDTH/2-TOLERANCE) {
+			score--;
+		}
+	}
+	if(score==0) {return "middle";}
+	else if(score<0) {return "right";}
+	else {return "left";}
 }

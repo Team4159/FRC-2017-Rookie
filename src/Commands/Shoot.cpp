@@ -1,5 +1,6 @@
 #include "Shoot.h"
 #include <SmartDashboard/SmartDashboard.h>
+#include "../OI.h"
 Shoot::Shoot() {
 	Requires(shooter.get());
 	// Use Requires() here to declare subsystem dependencies
@@ -19,7 +20,7 @@ void Shoot::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool Shoot::IsFinished() {
-	return false;
+	return (robotTimer->Get()>15 && !OI::shootButton->Get());
 }
 
 // Called once after isFinished returns true

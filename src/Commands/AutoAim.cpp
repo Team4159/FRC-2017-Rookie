@@ -32,7 +32,7 @@ AutoAim::AutoAim() {
 void AutoAim::Initialize() {
 	frc::SmartDashboard::PutBoolean("Aiming", true);
 	isAiming=true;
-	double biggest = 0;
+	double biggest = -1;
 	cv::Point biggestcenter;
 
 	std::vector<std::vector<cv::Point>> contours = filteredContours(cameraPortHigh);
@@ -42,20 +42,23 @@ void AutoAim::Initialize() {
 			biggestcenter=centerOfContour(contours[c]);
 		}
 	}
-	centerX = biggestcenter.x;
+	if(biggest == -1) {isAiming = false;}
+	if(isAiming) {centerX = biggestcenter.x;}
 	ti = new Timer(); ti.Reset(); ti.Start();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoAim::Execute() {
-	if(centerX > IMG_WIDTH/2) {drivetrain->set(1.0,-1.0);}
-	else {drivetrain->set(-1.0,1.0);}
+	if(isAiming) {
+		if(centerX > IMG_WIDTH/2) {drivetrain->set(1.0,-1.0);}
+		else {drivetrain->set(-1.0,1.0);}
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoAim::IsFinished() {
-
-	if(centerX > IMG_WIDTH/2) {
+	if(!isAiming) {return true;}
+	else if(centerX > IMG_WIDTH/2) {
 		return ti.Get() > atan(cameraWidth2Feet*(centerX-(IMG_WIDTH/2))/24.0/IMG_WIDTH)/radiansPerSec;
 	}
 	else {
