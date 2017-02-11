@@ -43,8 +43,8 @@ void AutoGear::Initialize() {
 	//That's why you explain your code to the cookie!
 	if(centerX - (IMG_WIDTH/2) > 0) {turnClockwise = true;}
 	double gearPegLength = 17.0;
-	double bla = (cameraWidth2Feet * distFromGearPeg() * (abs(centerX - (IMG_WIDTH)/2)))/(24.0*IMG_WIDTH);
-	double theta =  atan(cameraWidth2Feet*(centerX-(IMG_WIDTH/2))/24.0/IMG_WIDTH);
+    double theta = (abs(centerX-IMG_WIDTH/2)/IMG_WIDTH)*3/pi;
+    double bla = distFromGearPeg()*sin(theta);
 	double phi = atan(bla/(distFromGearPeg()*sin(theta)));
 	stage2Dist = sqrt(pow(distFromGearPeg(),2)+pow(gearPegLength,2)-2*distFromGearPeg()*gearPegLength*cos(theta-phi+pi/2));
 	rotato = asin(gearPegLength*sin(theta-phi+pi/2)/stage2Dist);
