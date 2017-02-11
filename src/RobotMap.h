@@ -4,7 +4,7 @@
 
 //set these to correct values after drivetrain fixed
 constexpr int leftDriveMotor = 0;
-constexpr int rightDriveMotor = 0;
+constexpr int rightDriveMotor = 1
 constexpr int flywheelPort = 0;
 constexpr int cameraPortHigh = 0;
 constexpr int cameraPortLow = 0;
@@ -13,6 +13,7 @@ constexpr int cameraPortLow = 0;
 
 //24 in = 29.9375 in width
 
+constexpr int shooterFlywheelMotor = 8;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking

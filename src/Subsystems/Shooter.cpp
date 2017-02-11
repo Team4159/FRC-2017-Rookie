@@ -1,10 +1,11 @@
 #include "Shooter.h"
 #include "../RobotMap.h"
 #include <VictorSP.h>
+#include <SmartDashboard/SmartDashboard.h>
 
 Shooter::Shooter() : Subsystem("Shooter") {
-	flywheelMotor = new VictorSP(flywheelPort);
-	IsShooting=false;
+	flywheelMotor = new VictorSP(shooterFlywheelMotor);
+  IsShooting = false;
 }
 
 void Shooter::InitDefaultCommand() {
@@ -16,4 +17,5 @@ void Shooter::InitDefaultCommand() {
 // here. Call these from Commands.
 void Shooter::SetFlywheel(double value){
 	flywheelMotor->Set(value);
+	frc::SmartDashboard::PutNumber("FlywheelPower", value);
 }

@@ -7,14 +7,18 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
 #include <string>
+
+#include "Commands/Shoot.h"
 #include "CommandBase.h"
 #include "VisionMethods.h"
 
 class Robot: public frc::IterativeRobot {
 public:
 	void RobotInit() override {
+		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
-		setupSmartDashboard();
+		CommandBase::init();
+		SetupSmartDashboard();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}
 
@@ -24,7 +28,7 @@ public:
 	 * the robot is disabled.
 	 */
 	void DisabledInit() override {
-
+		CommandBase::drivetrain->Disable();
 	}
 
 	void DisabledPeriodic() override {
@@ -115,6 +119,7 @@ public:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		CommandBase::drivetrain->Enable();
 		if (autonomousCommand != nullptr) {
 			autonomousCommand->Cancel();
 		}
@@ -122,7 +127,12 @@ public:
 	}
 
 	void TeleopPeriodic() override {
-		CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
+		if (!CommandBase::shooter->IsShooting){
+			CommandBase::drivetrain->Set(CommandBase::oi->GetRightDriveValue(), CommandBase::oi->GetRightDriveValue());
+		}
+		else {
+			CommandBase::drivetrain->Set(CommandBase::oi->GetTurnValue() * -1, CommandBase::oi->GetTurnValue());
+		}
 		frc::Scheduler::GetInstance()->Run();
 	}
 
@@ -133,8 +143,12 @@ public:
 private:
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
-	void setupSmartDashboard() {
 
+	void SetupSmartDashboard() {
+		frc::SmartDashboard::PutNumber("LeftMotor", 0);
+		frc::SmartDashboard::PutNumber("RightMotor", 0);
+		frc::SmartDashboard::PutNumber("FlywheelPower", 0);
+		frc::SmartDashboard::PutBoolean("Shooting", false);
 	}
 };
 

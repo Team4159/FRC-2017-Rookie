@@ -25,11 +25,12 @@ public:
 	double SHOOTING_TURN_MULTIPLIER = 0.5;
 	int IMG_WIDTH = 640;
 	int IMG_HEIGHT = 480;
+
 	OI();
-	double getLeftDriveValue();
-	double getRightDriveValue();
-	double getFlywheelValue();
-	double getTurnValue();
+	double GetLeftDriveValue();
+	double GetRightDriveValue();
+	double GetFlywheelValue();
+	double GetTurnValue();
 };
 
 #endif  // OI_H
