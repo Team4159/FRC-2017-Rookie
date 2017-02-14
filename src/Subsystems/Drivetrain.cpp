@@ -18,7 +18,7 @@ void Drivetrain::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Drivetrain::set(double leftValue, double rightValue){
+void Drivetrain::Set(double leftValue, double rightValue){
 	if (!IsEnabled){
 		leftValue = 0;
 		rightValue = 0;
@@ -31,7 +31,7 @@ void Drivetrain::set(double leftValue, double rightValue){
 }
 
 void Drivetrain::Disable(){
-	set(0, 0);
+	Set(0, 0);
 	IsEnabled = false;
 }
 

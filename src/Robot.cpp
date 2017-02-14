@@ -16,7 +16,7 @@ public:
 		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		CommandBase::init();
-		setupSmartDashboard();
+		SetupSmartDashboard();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}
 
@@ -78,10 +78,10 @@ public:
 
 	void TeleopPeriodic() override {
 		if (!CommandBase::shooter->IsShooting){
-			CommandBase::drivetrain->set(CommandBase::oi->getLeftDriveValue(), CommandBase::oi->getRightDriveValue());
+			CommandBase::drivetrain->Set(CommandBase::oi->GetRightDriveValue(), CommandBase::oi->GetRightDriveValue());
 		}
 		else {
-			CommandBase::drivetrain->set(CommandBase::oi->getTurnValue() * -1, CommandBase::oi->getTurnValue());
+			CommandBase::drivetrain->Set(CommandBase::oi->GetTurnValue() * -1, CommandBase::oi->GetTurnValue());
 		}
 		frc::Scheduler::GetInstance()->Run();
 	}
@@ -94,7 +94,7 @@ private:
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
 
-	void setupSmartDashboard() {
+	void SetupSmartDashboard() {
 		frc::SmartDashboard::PutNumber("LeftMotor", 0);
 		frc::SmartDashboard::PutNumber("RightMotor", 0);
 		frc::SmartDashboard::PutNumber("FlywheelPower", 0);

@@ -2,8 +2,8 @@
 #define ROBOTMAP_H
 
 //set these to correct values after drivetrain fixed
-constexpr int leftDriveMotor = 1;
-constexpr int rightDriveMotor = 0;
+constexpr int leftDriveMotor = 0;
+constexpr int rightDriveMotor = 1;
 
 constexpr int shooterFlywheelMotor = 8;
 

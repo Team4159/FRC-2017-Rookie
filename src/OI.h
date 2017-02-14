@@ -23,10 +23,10 @@ public:
 	double SHOOTING_TURN_MULTIPLIER = 0.5;
 
 	OI();
-	double getLeftDriveValue();
-	double getRightDriveValue();
-	double getFlywheelValue();
-	double getTurnValue();
+	double GetLeftDriveValue();
+	double GetRightDriveValue();
+	double GetFlywheelValue();
+	double GetTurnValue();
 };
 
 #endif  // OI_H
