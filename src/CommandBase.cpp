@@ -14,6 +14,7 @@ std::unique_ptr<Drivetrain> CommandBase::drivetrain=
 std::unique_ptr<OI> CommandBase::oi = NULL;
 
 std::unique_ptr<Shooter> CommandBase::shooter = NULL;
+std::unique_ptr<Gyrosensor> CommandBase::gyro = NULL;
 
 CommandBase::CommandBase(const std::string &name) :
 		frc::Command(name) {
@@ -27,4 +28,6 @@ void CommandBase::init(){
 	robotTimer = std::make_unique<Timer>();
 	gp = std::make_unique<grip::GripPipeline>();
 	gearouttake = std::make_unique<GearOuttake>();
+    gyro = std::make_unique<Gyrosensor>();
+    
 }

@@ -5,7 +5,7 @@
  *      Author: matthewacho
  */
 #include "Commands/GripPipeline.h"
-#include "RobotConstants.h"
+#include "RobotConstants.h" //If you don't know what some variables are, they were probably defined in here
 #include <string>
 #include <vector>
 #ifndef SRC_VISIONMETHODS_H_
@@ -51,7 +51,7 @@ double distFromGearPeg() { //Find distance from the gear peg, in inches.
 }
 
 cv::Point centerOfContour(std::vector<cv::Point> contour) {
-	int totalx=0.0;
+	int totalx=0.0; //given a contour, outputs its center
 	int totaly=0.0;
 	for(int d=0; d<contour.size();d++) {
 		totalx+=contour[d].x;
@@ -64,7 +64,7 @@ cv::Point centerOfContour(std::vector<cv::Point> contour) {
 }
 
 std::vector<cv::Point> contourCenters(std::vector<std::vector<cv::Point>> contours) {
-	std::vector<cv::Point> centers;
+	std::vector<cv::Point> centers; //given a vector of contours, outputs a vector consisting of their centers
 	double totalx;
 	double totaly;
 	for(int c=0;c<contours.size();c++) {

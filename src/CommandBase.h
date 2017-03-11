@@ -29,6 +29,7 @@ public:
 	static std::unique_ptr<Timer> robotTimer;
 	static std::unique_ptr<grip::GripPipeline> gp;
 	static std::unique_ptr<GearOuttake> gearouttake;
+    static std::unique_ptr<Gyrosensor> gyro;
 	static void init();
 };
 
