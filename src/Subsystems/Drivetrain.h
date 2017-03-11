@@ -4,7 +4,7 @@
 #include <Commands/Subsystem.h>
 #include <Joystick.h>
 #include <VictorSP.h>
-class Drivetrain: public frc::Subsystem {
+class Drivetrain: public Subsystem {
 public:
 	Drivetrain();
 	void InitDefaultCommand() override;

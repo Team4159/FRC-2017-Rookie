@@ -9,6 +9,7 @@
 #include "OI.h"
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Shooter.h"
+#include "Commands/GripPipeline.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -25,6 +26,10 @@ public:
 	static std::unique_ptr<Drivetrain> drivetrain;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
+	static std::unique_ptr<Timer> robotTimer;
+	static std::unique_ptr<grip::GripPipeline> gp;
+	static std::unique_ptr<GearOuttake> gearouttake;
+    static std::unique_ptr<Gyrosensor> gyro;
 	static void init();
 };
 

@@ -8,6 +8,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	VictorSP* flywheelMotor;
+	bool IsShooting;
 public:
 	Shooter();
 	void InitDefaultCommand();

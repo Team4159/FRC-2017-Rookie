@@ -1,9 +1,17 @@
+#include "Commands/GripPipeline.h"
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
 //set these to correct values after drivetrain fixed
 constexpr int leftDriveMotor = 0;
-constexpr int rightDriveMotor = 1;
+constexpr int rightDriveMotor = 1
+constexpr int flywheelPort = 0;
+constexpr int cameraPortHigh = 0;
+constexpr int cameraPortLow = 0;
+//4 feet = height 121 for gear peg
+//4 feet = height 39 for high goal 4 inch high tape
+
+//24 in = 29.9375 in width
 
 constexpr int shooterFlywheelMotor = 8;
 /**

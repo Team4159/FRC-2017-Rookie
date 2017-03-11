@@ -5,6 +5,7 @@
 
 Shooter::Shooter() : Subsystem("Shooter") {
 	flywheelMotor = new VictorSP(shooterFlywheelMotor);
+  IsShooting = false;
 }
 
 void Shooter::InitDefaultCommand() {

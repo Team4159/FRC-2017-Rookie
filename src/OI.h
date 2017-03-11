@@ -9,6 +9,8 @@ public:
 	std::unique_ptr<Joystick> rightStick = std::make_unique<Joystick>(1);
 
 	JoystickButton *shootButton;
+	JoystickButton *AimButton;
+	JoystickButton *GearButton;
 
 	Joystick::AxisType LEFT_DRIVE_AXIS = Joystick::AxisType::kYAxis;
 	double LEFT_DRIVE_MULTIPLIER = 1;
@@ -21,6 +23,8 @@ public:
 
 	Joystick::AxisType SHOOTING_TURN_AXIS = Joystick::AxisType::kXAxis;
 	double SHOOTING_TURN_MULTIPLIER = 0.5;
+	int IMG_WIDTH = 640;
+	int IMG_HEIGHT = 480;
 
 	OI();
 	double GetLeftDriveValue();

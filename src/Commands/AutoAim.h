@@ -1,16 +1,18 @@
-#ifndef Shoot_H
-#define Shoot_H
+#ifndef AutoAim_H
+#define AutoAim_H
 
 #include "../CommandBase.h"
 
-class Shoot : public CommandBase {
+class AutoAim : public CommandBase {
 public:
-	Shoot();
+	AutoAim();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
+	int centerX;
+	Timer ti;
 };
 
-#endif  // Shoot_H
+#endif  // AutoAim_H

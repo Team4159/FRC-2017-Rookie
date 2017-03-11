@@ -5,7 +5,7 @@
 #include <SmartDashboard/SmartDashboard.h>
 
 Drivetrain::Drivetrain() :
-		frc::Subsystem("Drivetrain") {
+	frc::Subsystem("Drivetrain") {
 	leftMotor = new VictorSP(leftDriveMotor);
 	rightMotor = new VictorSP(rightDriveMotor);
 	leftMotor->SetInverted(true);

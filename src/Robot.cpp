@@ -6,9 +6,11 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
+#include <string>
 
 #include "Commands/Shoot.h"
 #include "CommandBase.h"
+#include "VisionMethods.h"
 
 class Robot: public frc::IterativeRobot {
 public:
@@ -45,6 +47,53 @@ public:
 	 * to the if-else structure below with additional strings & commands.
 	 */
 	void AutonomousInit() override {
+		chooser.AddDefault("Default Auto", new Drive(24.0));
+		chooser.AddDefault("Default Auto", new AutoGear());
+		switch(initialOrientation()) {
+			case "left": {
+				chooser.AddDefault("Default Auto", new Turn(74.81, false)); //turn towards hopper
+				chooser.AddDefault("Default Auto", new Drive(112.23)); //drive in front of it
+				chooser.AddDefault("Default Auto", new Turn(75.19, false)); //turn towards it
+				chooser.AddDefault("Default Auto", new Drive(50)); //ram into it
+				chooser.AddDefault("Default Auto", new Drive(-48)); //back up to give space to turn
+				chooser.AddDefault("Default Auto", new Turn(90, false)); //turn towards left hopper
+				chooser.AddDefault("Default Auto", new Drive(36)); //pick up some balls
+				chooser.AddDefault("Default Auto", new Turn(180, true)); //turn towards right hopper
+				chooser.AddDefault("Default Auto", new Drive(80));
+				chooser.AddDefault("Default Auto", new Turn(90, true)); //this is the route to the boiler
+				chooser.AddDefault("Default Auto", new Drive(228));
+				chooser.AddDefault("Default Auto", new Turn(90, true));
+				chooser.AddDefault("Default Auto", new Drive(160));
+				break;
+			}
+
+			case "middle": {
+				chooser.AddDefault("Default Auto", new Turn(58.18, true));
+				chooser.AddDefault("Default Auto", new Drive(134.17));
+				chooser.AddDefault("Default Auto", new Turn(31.82, true));
+				chooser.AddDefault("Default Auto", new Drive(50)); //ram into it
+				chooser.AddDefault("Default Auto", new Drive(-48)); //back up to give space to turn
+				chooser.AddDefault("Default Auto", new Turn(90, false)); //turn towards left hopper
+				chooser.AddDefault("Default Auto", new Drive(36)); //pick up some balls
+				chooser.AddDefault("Default Auto", new Turn(180, true)); //turn towards right hopper
+				chooser.AddDefault("Default Auto", new Drive(90));
+				break;
+			}
+			case "right": {
+				chooser.AddDefault("Default Auto", new Turn(113.16, true));
+				chooser.AddDefault("Default Auto", new Drive(35.86));
+				chooser.AddDefault("Default Auto", new Turn(36.84, true));
+				chooser.AddDefault("Default Auto", new Drive(50)); //ram into it
+				chooser.AddDefault("Default Auto", new Drive(-48)); //back up to give space to turn
+				chooser.AddDefault("Default Auto", new Turn(90, false)); //turn towards left hopper
+				chooser.AddDefault("Default Auto", new Drive(36)); //pick up some balls
+				chooser.AddDefault("Default Auto", new Turn(180, true)); //turn towards right hopper
+				chooser.AddDefault("Default Auto", new Drive(90));
+				break;
+			}
+			chooser.AddDefault("Default Auto", new AutoAim());
+		}
+		chooser.AddDefault("Default Auto", new Shoot());
 		/* std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
 		if (autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -74,6 +123,7 @@ public:
 		if (autonomousCommand != nullptr) {
 			autonomousCommand->Cancel();
 		}
+
 	}
 
 	void TeleopPeriodic() override {
