@@ -1,0 +1,6 @@
+Debug/
+build/
+.settings/
+.project
+.cproject
+sysProps.xml
