@@ -43,7 +43,10 @@ public class OI {
 
 	}
 	public boolean getClimber(){
-		if(secondaryStick.getRawButton(6))
+		if(secondaryStick.getRawButton(6)) {
+		    return true;
+		}
+		return false;
 	}
 	public boolean getShooter(){
 	    if(secondaryStick.getRawButton(3)){
