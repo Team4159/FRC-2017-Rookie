@@ -1,10 +1,10 @@
 package org.usfirst.frc.team9514.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.buttons.Button;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team9514.robot.commands.ExampleCommand;
+//import org.usfirst.frc.team9514.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,6 +16,8 @@ public class OI {
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
+	public Joystick rightStick = new Joystick(0);
+	public Joystick leftStick = new Joystick(1);
 	public Joystick secondaryStick = new Joystick(2);
 
 	//Button secondaryShoot = new JoystickButton(secondaryStick, 7);
@@ -42,16 +44,25 @@ public class OI {
 	public OI(){
 
 	}
-	public boolean getClimber(){
-		if(secondaryStick.getRawButton(6)) {
-		    return true;
-		}
-		return false;
+	
+	public double getLeftDriveValue(){
+		return leftStick.getY();
 	}
+	public double getRightDriveValue(){
+		return rightStick.getY();
+	}
+	
 	public boolean getShooter(){
 	    if(secondaryStick.getRawButton(3)){
 	        return true;
 	    }
 	    return false;
 	}
+	public boolean getClimber(){
+		if(secondaryStick.getRawButton(6)) {
+		    return true;
+		}
+		return false;
+	}
+
 }

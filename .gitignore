@@ -1,6 +1,4 @@
-*.pydevproject
 .metadata
-.gradle
 bin/
 tmp/
 *.tmp
@@ -8,6 +6,7 @@ tmp/
 *.swp
 *~.nib
 local.properties
+RemoteSystemTempFiles/.project
 .settings/
 .loadpath
 

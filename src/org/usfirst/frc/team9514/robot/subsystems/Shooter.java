@@ -12,7 +12,7 @@ import org.usfirst.frc.team9514.robot.subsystems.PIDOutputReceiver;
  *
  */
 public class Shooter extends Subsystem {
-	private static final double ENCODER_PULSE_PER_ROTATION=360;
+	//private static final double ENCODER_PULSE_PER_ROTATION=360;
 	
 	private static final double PID_SHOOTER_P=0.0;
 	private static final double PID_SHOOTER_I=0.0;
