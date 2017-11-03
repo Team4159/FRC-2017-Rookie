@@ -6,7 +6,7 @@ tmp/
 *.swp
 *~.nib
 local.properties
-RemoteSystemTempFiles/.project
+.project
 .settings/
 .loadpath
 
