@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team9514.robot.RobotMap;
+import org.usfirst.frc.team9514.robot.commands.TeleopDrive;
 import org.usfirst.frc.team9514.robot.subsystems.PIDOutputReceiver;
 
 /**
@@ -52,10 +53,11 @@ public class Drivetrain extends Subsystem {
 		leftEncoder = new Encoder(RobotMap.LEFT_DRIVE_ENCODER_A, RobotMap.LEFT_DRIVE_ENCODER_B);
 		rightEncoder = new Encoder(RobotMap.RIGHT_DRIVE_ENCODER_A, RobotMap.RIGHT_DRIVE_ENCODER_B);
 		
-		leftPID = new PIDController(PID_LEFT_P, PID_LEFT_I, PID_LEFT_D, PID_LEFT_F, leftEncoder, leftOutput);
-		rightPID = new PIDController( PID_RIGHT_P, PID_RIGHT_I, PID_RIGHT_D, PID_RIGHT_F, rightEncoder, rightOutput);
 		leftOutput = new PIDOutputReceiver();
 		rightOutput = new PIDOutputReceiver();
+		
+		leftPID = new PIDController(PID_LEFT_P, PID_LEFT_I, PID_LEFT_D, PID_LEFT_F, leftEncoder, leftOutput);
+		rightPID = new PIDController( PID_RIGHT_P, PID_RIGHT_I, PID_RIGHT_D, PID_RIGHT_F, rightEncoder, rightOutput);
 		
 		leftEncoder.setReverseDirection(false);
 		rightEncoder.setReverseDirection(false);
@@ -114,6 +116,7 @@ public class Drivetrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new TeleopDrive());
     }
 }
 

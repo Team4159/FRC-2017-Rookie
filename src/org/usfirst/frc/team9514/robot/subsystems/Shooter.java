@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.PIDController;
 
 import org.usfirst.frc.team9514.robot.RobotMap;
+import org.usfirst.frc.team9514.robot.commands.Shoot;
 import org.usfirst.frc.team9514.robot.subsystems.PIDOutputReceiver;
 
 /**
@@ -14,10 +15,10 @@ import org.usfirst.frc.team9514.robot.subsystems.PIDOutputReceiver;
 public class Shooter extends Subsystem {
 	//private static final double ENCODER_PULSE_PER_ROTATION=360;
 	
-	private static final double PID_SHOOTER_P=0.0;
+	private static final double PID_SHOOTER_P=0.1;
 	private static final double PID_SHOOTER_I=0.0;
 	private static final double PID_SHOOTER_D=0.0;
-	private static final double PID_SHOOTER_F=0.0;
+	private static final double PID_SHOOTER_F=0.1;
 	private static final double PID_SHOOTER_TOLERANCE=2;
 	
 	private static int TARGET_SPEED = 3000;
@@ -39,7 +40,6 @@ public class Shooter extends Subsystem {
 		shooterPID = new PIDController(PID_SHOOTER_P, PID_SHOOTER_I, PID_SHOOTER_D, PID_SHOOTER_F, 
 		                             shooterEncoder, shooterOutput);
 		
-		
 		shooterPID.setContinuous(true);//maybe?
 		shooterPID.setAbsoluteTolerance(PID_SHOOTER_TOLERANCE);
 		
@@ -50,6 +50,7 @@ public class Shooter extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new Shoot());
     }
     
     public void setRaw(double value){
@@ -73,5 +74,7 @@ public class Shooter extends Subsystem {
     public double getShooterPIDOutput(){
     	return shooterOutput.getValue();
     }
+    public double getEncoderValue(){
+    	return shooterEncoder.get();
+    }
 }
-

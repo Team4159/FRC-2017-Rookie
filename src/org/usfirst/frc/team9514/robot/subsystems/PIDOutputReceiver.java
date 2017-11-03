@@ -5,14 +5,12 @@ import edu.wpi.first.wpilibj.PIDOutput;
 public class PIDOutputReceiver implements PIDOutput {
     private double value;
     
-    public void PIDWrite(double output){
-        value=output;
+    public PIDOutputReceiver(){
+    	
     }
-    
-    @Override
     public void pidWrite(double output) {
         // TODO Auto-generated method stub
-        
+        value=output;
     }
     public double getValue() {
         // TODO Auto-generated method stub

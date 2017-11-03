@@ -8,11 +8,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-//import org.usfirst.frc.team9514.robot.commands.ExampleCommand;
-//import org.usfirst.frc.team9514.robot.commands.Shoot;
-
-//import org.usfirst.frc.team9514.robot.subsystems.ExampleSubsystem;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -36,6 +31,14 @@ public class Robot extends IterativeRobot {
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		CommandBase.init();
+	}
+	
+	public void robotPeriodic(){
+		SmartDashboard.putNumber("Flywheel Speed",CommandBase.shooter.getEncoderValue());
+		SmartDashboard.putNumber("Flywheel Encoder Value", CommandBase.shooter.getEncoderValue());
+		SmartDashboard.putBoolean("Flywheel Button", CommandBase.oi.getShooter());
+		SmartDashboard.putNumber("Left Y", CommandBase.oi.getLeftDriveValue());
 	}
 
 	/**

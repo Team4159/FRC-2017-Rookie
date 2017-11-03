@@ -53,7 +53,7 @@ public class OI {
 	}
 	
 	public boolean getShooter(){
-	    if(secondaryStick.getRawButton(3)){
+	    if(secondaryStick.getRawButton(7)){
 	        return true;
 	    }
 	    return false;

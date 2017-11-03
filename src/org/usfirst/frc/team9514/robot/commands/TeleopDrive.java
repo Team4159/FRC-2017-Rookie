@@ -1,13 +1,8 @@
 package org.usfirst.frc.team9514.robot.commands;
 
 import org.usfirst.frc.team9514.robot.CommandBase;
-import org.usfirst.frc.team9514.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class TeleopDrive extends Command {
 	
 	private final double LEFT_DRIVE_MULTIPLIER = 1.0;
@@ -25,8 +20,8 @@ public class TeleopDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CommandBase.drivetrain.set(Robot.oi.getLeftDriveValue()*LEFT_DRIVE_MULTIPLIER,
-    						 CommandBase.oi.getRightDriveValue()*RIGHT_DRIVE_MULTIPLIER);
+    	CommandBase.drivetrain.setRaw(CommandBase.oi.getLeftDriveValue()*LEFT_DRIVE_MULTIPLIER,
+    						 CommandBase.oi.getRightDriveValue()*RIGHT_DRIVE_MULTIPLIER,false);
     	
     }
 

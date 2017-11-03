@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< Updated upstream
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/wpilib"/>
-=======
-	<classpathentry excluding="src/" kind="src" path=""/>
->>>>>>> Stashed changes
-	<classpathentry kind="var" path="wpilib" sourcepath="wpilib.sources"/>
-	<classpathentry kind="var" path="networktables" sourcepath="networktables.sources"/>
-	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
-	<classpathentry kind="var" path="cscore" sourcepath="cscore.sources"/>
-<<<<<<< Updated upstream
-=======
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
->>>>>>> Stashed changes
+	<classpathentry exported="true" kind="var" path="wpilib" sourcepath="wpilib.sources"/>
+	<classpathentry exported="true" kind="var" path="networktables" sourcepath="networktables.sources"/>
+	<classpathentry exported="true" kind="var" path="opencv" sourcepath="opencv.sources"/>
+	<classpathentry exported="true" kind="var" path="cscore" sourcepath="cscore.sources"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
