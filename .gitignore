@@ -9,6 +9,7 @@ local.properties
 .project
 .settings/
 .loadpath
+.classpath
 
 #Compiled code
 bin/

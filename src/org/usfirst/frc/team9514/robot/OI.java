@@ -43,8 +43,8 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public OI(){
 
-	}
 	
+	}
 	public double getLeftDriveValue(){
 		return leftStick.getY();
 	}
@@ -64,5 +64,11 @@ public class OI {
 		}
 		return false;
 	}
+   public boolean getFeeder(){
+    return secondaryStick.getRawButton(5);
+    }
 
-}
+    public boolean getIntaker(){
+        return secondaryStick.getRawButton(8);
+    }
+    }
