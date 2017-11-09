@@ -25,6 +25,8 @@ public class RobotMap {
     public static int RIGHT_DRIVE_ENCODER_A=4;
     public static int RIGHT_DRIVE_ENCODER_B=5;
     public static int LIMIT_SWITCH = 6;
+    public static int SOLENOID1 = 0;
+    public static int SOLENOID2 = 1;
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

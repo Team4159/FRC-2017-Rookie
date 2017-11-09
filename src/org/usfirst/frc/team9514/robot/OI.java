@@ -71,4 +71,10 @@ public class OI {
     public boolean getIntaker(){
         return secondaryStick.getRawButton(8);
     }
+    public boolean getGearIntake() {
+        return secondaryStick.getRawButton(4);
+    }
+    public boolean getGearOuttake() {
+        return secondaryStick.getRawButton(3);
+    }
     }

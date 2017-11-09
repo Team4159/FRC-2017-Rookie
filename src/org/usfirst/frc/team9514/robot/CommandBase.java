@@ -6,6 +6,8 @@ import org.usfirst.frc.team9514.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team9514.robot.subsystems.Shooter;
 import org.usfirst.frc.team9514.robot.subsystems.Feeder;
 import org.usfirst.frc.team9514.robot.subsystems.ExtendingIntake;
+import org.usfirst.frc.team9514.robot.subsystems.Gear;
+
 public class CommandBase {
 	//Initialize subsystems
 	public static Shooter shooter;
@@ -14,6 +16,7 @@ public class CommandBase {
 	public static Feeder feeder;
     public static ExtendingIntake intaker;	
 	public static OI oi;
+	public static Gear gear;
 	
 	public CommandBase(){
 		
@@ -26,6 +29,7 @@ public class CommandBase {
 		drivetrain = new Drivetrain();
 		climber = new Climber();
 		feeder = new Feeder();
+		gear = new Gear();
 	}
 	
 	public static void enable(){
