@@ -1,19 +1,19 @@
-package org.usfirst.frc.team9514.robot.subsystems;
+package org.usfirst.frc.team9159.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.PIDController;
-import org.usfirst.frc.team9514.robot.RobotMap;
-import org.usfirst.frc.team9514.robot.commands.Feed;
+import org.usfirst.frc.team9159.robot.RobotMap;
+import org.usfirst.frc.team9159.robot.commands.Feed;
 /**
  *
  */
 public class Feeder extends Subsystem {
-    private VictorSP feederVictor;
+    private VictorSP feederVictorLeft;
+    private VictorSP feederVictorRight;
     public Feeder(){
-        feederVictor = new VictorSP(RobotMap.FEEDER_MOTOR);
+        feederVictorLeft = new VictorSP(RobotMap.FEEDER_MOTOR_LEFT);
+        feederVictorRight = new VictorSP(RobotMap.FEEDER_MOTOR_RIGHT);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     }
@@ -23,7 +23,8 @@ public class Feeder extends Subsystem {
         setDefaultCommand(new Feed());
     }
     public void setRaw(double value){
-        feederVictor.set(value);
+        feederVictorLeft.set(value);
+        feederVictorRight.set(value);
     }
     
 }

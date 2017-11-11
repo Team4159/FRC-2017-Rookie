@@ -1,42 +1,48 @@
-package org.usfirst.frc.team9514.robot.commands;
+package org.usfirst.frc.team9159.robot.commands;
 
-import org.usfirst.frc.team9514.robot.CommandBase;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team9159.robot.CommandBase;
 
-public class TeleopDrive extends Command {
+/**
+ *
+ */
+public class Shoot extends Command { 
+    private double TARGET_SPEED = .8;
 	
-	private final double LEFT_DRIVE_MULTIPLIER = 1.0;
-	private final double RIGHT_DRIVE_MULTIPLIER = 1.0;
-
-    public TeleopDrive() {
+    public Shoot() {
         // Use requires() here to declare subsystem dependencies
-        requires(CommandBase.drivetrain);
+        // eg. requires(chassis);
+        requires(CommandBase.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	CommandBase.drivetrain.disablePID();
+        CommandBase.shooter.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CommandBase.drivetrain.setRaw(CommandBase.oi.getLeftDriveValue()*LEFT_DRIVE_MULTIPLIER,
-    						 CommandBase.oi.getRightDriveValue()*RIGHT_DRIVE_MULTIPLIER,false);
-    	
+        //shooterOutput*=.5;//Scale
+        if(CommandBase.oi.getShooter())
+            CommandBase.shooter.setSetPoint(TARGET_SPEED);
+        else
+            CommandBase.shooter.setRaw(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return CommandBase.shooter.onTarget();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	CommandBase.drivetrain.disablePID();
+        CommandBase.shooter.disable();
+        CommandBase.shooter.setRaw(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }

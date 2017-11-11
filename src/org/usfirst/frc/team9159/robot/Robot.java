@@ -1,5 +1,9 @@
 
-package org.usfirst.frc.team9514.robot;
+package org.usfirst.frc.team9159.robot;
+
+import org.usfirst.frc.team9159.robot.commands.AutonomousDrive;
+
+//import org.usfirst.frc.team9159.robot.commands.AutonomousDrive;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,17 +32,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		CommandBase.init();
+
+		chooser.addDefault("Default Auto", new AutonomousDrive());
 	}
 	
 	public void robotPeriodic(){
-		SmartDashboard.putNumber("Flywheel Speed",CommandBase.shooter.getEncoderValue());
-		SmartDashboard.putNumber("Flywheel Encoder Value", CommandBase.shooter.getEncoderValue());
-		SmartDashboard.putBoolean("Flywheel Button", CommandBase.oi.getShooter());
-		SmartDashboard.putNumber("Left Y", CommandBase.oi.getLeftDriveValue());
+		//SmartDashboard.putNumber("Left Y", CommandBase.oi.getLeftDriveValue());
 	}
 
 	/**

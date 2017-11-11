@@ -1,10 +1,10 @@
-package org.usfirst.frc.team9514.robot;
+package org.usfirst.frc.team9159.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.buttons.Button;
 //import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-//import org.usfirst.frc.team9514.robot.commands.ExampleCommand;
+//import org.usfirst.frc.team9159.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -65,16 +65,31 @@ public class OI {
 		return false;
 	}
    public boolean getFeeder(){
-    return secondaryStick.getRawButton(5);
+	   if(secondaryStick.getRawButton(5)){
+		   return true;
+	   }
+	   return false;
     }
 
     public boolean getIntaker(){
-        return secondaryStick.getRawButton(8);
+    	if(secondaryStick.getRawButton(8)){
+    		return true;
+    	}
+    	return false;
     }
+    public boolean getExtend(){
+    	if(secondaryStick.getRawButton(9)){
+    		return true;
+    	}
+    	return false;
+    }
+    
     public boolean getGearIntake() {
-        return secondaryStick.getRawButton(4);
+        if(secondaryStick.getRawButton(4))
+        	return true;
+        return false;
     }
     public boolean getGearOuttake() {
         return secondaryStick.getRawButton(3);
     }
-    }
+ }

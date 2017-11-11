@@ -1,7 +1,7 @@
-package org.usfirst.frc.team9514.robot.commands;
+package org.usfirst.frc.team9159.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team9514.robot.CommandBase;
+import org.usfirst.frc.team9159.robot.CommandBase;
 
 public class Climb extends Command{
 	public Climb(){
@@ -9,7 +9,9 @@ public class Climb extends Command{
 	}
 	protected void execute() {
 		if(CommandBase.oi.getClimber()){
-	      CommandBase.climber.set(.5);
+	      CommandBase.climber.set(1.0);
+	    }else{
+	    	CommandBase.climber.set(0);
 	    }
 	}
 	protected boolean isFinished() {
