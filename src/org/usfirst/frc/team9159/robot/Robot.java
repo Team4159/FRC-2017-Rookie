@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team9159.robot;
 
-import org.usfirst.frc.team9159.robot.commands.AutonomousDrive;
+import org.usfirst.frc.team9159.robot.commands.AutoCommandGroup;
 
 //import org.usfirst.frc.team9159.robot.commands.AutonomousDrive;
 
@@ -36,11 +36,13 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 		CommandBase.init();
 
-		chooser.addDefault("Default Auto", new AutonomousDrive());
+		chooser.addDefault("Default Auto", new AutoCommandGroup());
 	}
 	
 	public void robotPeriodic(){
 		//SmartDashboard.putNumber("Left Y", CommandBase.oi.getLeftDriveValue());
+		SmartDashboard.putNumber("PID Output", CommandBase.shooter.getPIDOutput());
+		SmartDashboard.putNumber("Encoder Rate", CommandBase.shooter.getEncoderRate());
 	}
 
 	/**

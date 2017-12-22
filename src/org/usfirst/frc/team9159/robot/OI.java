@@ -16,8 +16,10 @@ public class OI {
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
-	public Joystick rightStick = new Joystick(0);
-	public Joystick leftStick = new Joystick(1);
+
+	public Joystick leftStick = new Joystick(0);
+	public Joystick rightStick = new Joystick(1);
+	
 	public Joystick secondaryStick = new Joystick(2);
 
 	//Button secondaryShoot = new JoystickButton(secondaryStick, 7);
@@ -45,12 +47,14 @@ public class OI {
 
 	
 	}
+	
 	public double getLeftDriveValue(){
 		return leftStick.getY();
 	}
 	public double getRightDriveValue(){
 		return rightStick.getY();
 	}
+
 	
 	public boolean getShooter(){
 	    if(secondaryStick.getRawButton(7)){
@@ -66,7 +70,7 @@ public class OI {
 	}
    public boolean getFeeder(){
 	   if(secondaryStick.getRawButton(5)){
-		   return true;
+		   return true;    
 	   }
 	   return false;
     }

@@ -1,11 +1,16 @@
 package org.usfirst.frc.team9159.robot.commands;
 
 import org.usfirst.frc.team9159.robot.CommandBase;
-import edu.wpi.first.wpilibj.command.Command;
 
-public class TeleopDrive extends Command {
-    public TeleopDrive() {
-        // Use requires() here to declare subsystem dependencies
+import edu.wpi.first.wpilibj.command.TimedCommand;
+
+/**
+ *
+ */
+public class DriveStraight extends TimedCommand {
+	//Oh the irony
+    public DriveStraight(double timeout) {
+        super(timeout);
         requires(CommandBase.drivetrain);
     }
 
@@ -15,20 +20,17 @@ public class TeleopDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CommandBase.drivetrain.setRaw(CommandBase.oi.getLeftDriveValue(),CommandBase.oi.getRightDriveValue());
+    	CommandBase.drivetrain.setRaw(0.5, 0.5);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
-
-    // Called once after isFinished returns true
+    // Called once after timeout
     protected void end() {
+    	CommandBase.drivetrain.setRaw(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

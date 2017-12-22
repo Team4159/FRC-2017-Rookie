@@ -11,15 +11,12 @@ public class Feed extends Command{
     }
     protected void execute(){
         if(CommandBase.oi.getFeeder())
-            CommandBase.shooter.setRaw(.5);
+            CommandBase.feeder.setRaw(.1);
         else
-        	CommandBase.shooter.setRaw(0);
+        	CommandBase.feeder.setRaw(0);
 
     }
     protected boolean isFinished(){
-    return false;
-   }
-        
-
-
+    	return false;	
+    }
 }

@@ -36,7 +36,7 @@ public class ExtendingIntake extends Subsystem {
         intakeVictor1.set(value);
     }
     public void setRawIntaking(double value){
-        intakeVictor2.set(-value);
+        intakeVictor2.set(value);
     }
 }
 

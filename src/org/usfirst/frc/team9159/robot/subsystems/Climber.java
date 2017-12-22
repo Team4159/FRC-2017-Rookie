@@ -8,13 +8,16 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 public class Climber extends Subsystem {
 	  private VictorSP climberMotor;
+	  private VictorSP climberMotor2;
 	  public Climber() {
-	    climberMotor = new VictorSP(RobotMap.CLIMBER_MOTOR);
+		    climberMotor = new VictorSP(RobotMap.CLIMBER_MOTOR);
+		    climberMotor2 = new VictorSP(RobotMap.CLIMBER_MOTOR_2);
 	  }
 	  public void initDefaultCommand(){
 		  setDefaultCommand(new Climb());
 	  }
 	  public void set(double speed) {
-	    climberMotor.set(speed);
+	    climberMotor.set(-speed);
+	    climberMotor2.set(-speed);
 	  }
 }

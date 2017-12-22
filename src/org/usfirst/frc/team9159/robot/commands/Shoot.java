@@ -7,7 +7,7 @@ import org.usfirst.frc.team9159.robot.CommandBase;
  *
  */
 public class Shoot extends Command { 
-    private double TARGET_SPEED = .8;
+    private double TARGET_SPEED = 33;//Revs/sec. This is random
 	
     public Shoot() {
         // Use requires() here to declare subsystem dependencies
@@ -22,16 +22,15 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //shooterOutput*=.5;//Scale
         if(CommandBase.oi.getShooter())
             CommandBase.shooter.setSetPoint(TARGET_SPEED);
         else
-            CommandBase.shooter.setRaw(0);
+            CommandBase.shooter.setSetPoint(0);//Makes it slowly go to 0; try setRaw(0) later?
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return CommandBase.shooter.onTarget();
+    	return false; //Switched from return true when onTarget()
     }
 
     // Called once after isFinished returns true

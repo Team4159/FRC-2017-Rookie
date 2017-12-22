@@ -9,6 +9,7 @@ import org.usfirst.frc.team9159.robot.commands.Feed;
  *
  */
 public class Feeder extends Subsystem {
+	//To individually check or to not?
     private VictorSP feederVictorLeft;
     private VictorSP feederVictorRight;
     public Feeder(){
@@ -23,9 +24,8 @@ public class Feeder extends Subsystem {
         setDefaultCommand(new Feed());
     }
     public void setRaw(double value){
-        feederVictorLeft.set(value);
+        feederVictorLeft.set(-1.0*value);
         feederVictorRight.set(value);
     }
     
 }
-
